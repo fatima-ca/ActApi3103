@@ -1,31 +1,28 @@
-import {Request, Response, NextFunction} from 'express';
-import UserController from '../controllers/user';
-
+const UserController = require('../controllers/user');
 
 const userController = new UserController();
 
-class UserHttpHandler{
-
-    async getAllUsers(request: Request, response: Response, next: NextFunction){
-        try{
-            const tweets = await userController.getAllUsers();
-            request.json(tweets)
-        } catch(error){
-            next(error)
-        }
+class UserHttpHandler {
+  async getAllUsers(request, response, next) {
+    try {
+      const users = await userController.getAllUsers(); // Changed tweets to users
+      response.json(users); // Changed request.json to response.json
+    } catch (error) {
+      next(error);
     }
+  }
 
-    async getUserById(request: Request, response: Response, next: NextFunction){
+  async getUserById(request, response, next) {
+    // Implement getUserById logic here
+  }
 
-    }
+  async updateUser(request, response, next) {
+    // Implement updateUser logic here
+  }
 
-    async updateUser(request: Request, response: Response, next: NextFunction){
-
-    }
-
-    async deleteUser(request: Request, response: Response, next: NextFunction){
-
-    }
+  async deleteUser(request, response, next) {
+    // Implement deleteUser logic here
+  }
 }
 
-export default UserHttpHandler;
+module.exports = UserHttpHandler;

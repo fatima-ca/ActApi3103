@@ -1,7 +1,12 @@
+import { tweetService } from "../db/tweet";
+
 class TweetController{
+   
 
     async getAllTweets(){
-        return[1,2,3,4,5,6,7,8,9,10]
+        const allTweets = await tweetService.getAll();
+       
+      return ;
     }
 
 

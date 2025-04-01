@@ -2,7 +2,7 @@
 //put actualizar
 
 import express from 'express';
-import TweetHttpHandler from '../handlers/tweets-http-handler';
+import TweetHttpHandler from '../handlers/tweet';
 
 const router= express.Router();
 const tweetHttpHandler= new TweetHttpHandler();

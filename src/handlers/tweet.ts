@@ -1,30 +1,32 @@
 //archivo para definir funciones get post
 //
 
-const TweetController = require('../controllers/tweet');
+import {Request, Response, NextFunction} from 'express';
+import TweetController from '../controllers/tweet';
 const tweetController = new TweetController();
 
-class TweetHttpHandler {
-  async getAllTweets(request, response, next) {
-    try {
-      const tweets = await tweetController.getAllTweets();
-      response.json(tweets); // Use response.json instead of request.json
-    } catch (error) {
-      next(error);
+class TweetHttpHandler{
+
+    async getAllTweets(request: Request, response: Response, next: NextFunction){
+        try{
+            const tweets = await tweetController.getAllTweets();
+            request.json(tweets)
+        } catch(error){
+            next(error)
+        }
     }
-  }
 
-  async getTweetById(request, response, next) {
-    // Implement getTweetById logic here
-  }
+    async getTweetById(request: Request, response: Response, next: NextFunction){
 
-  async updateTweet(request, response, next) {
-    // Implement updateTweet logic here
-  }
+    }
 
-  async deleteTweet(request, response, next) {
-    // Implement deleteTweet logic here
-  }
+    async updateTweet(request: Request, response: Response, next: NextFunction){
+
+    }
+
+    async deleteTweet(request: Request, response: Response, next: NextFunction){
+
+    }
 }
 
-module.exports = TweetHttpHandler;
+export default TweetHttpHandler;
